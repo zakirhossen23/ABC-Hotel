@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC Hotel | Modern Boutique Accommodation</title>
+    <meta name="description" content="Experience refined elegance, bespoke comfort, and warm hospitality at ABC Hotel. Direct booking guarantee with direct WhatsApp messaging.">
+    <meta name="keywords" content="ABC Hotel, boutique hotel, luxury rooms, direct booking, hotel accommodation">
+
+    <!-- Fonts: Roboto Slab for Headings, Roboto for Body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome CDN for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Custom Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#FDFBF7',
+                            100: '#F7F2E9',
+                            200: '#EBE0CE',
+                            300: '#DFC9A8',
+                            400: '#CFA872',
+                            500: '#B88842',
+                            600: '#9B6D31',
+                            700: '#7B5226',
+                            800: '#5C3C1E',
+                            900: '#3D2714',
+                        },
+                        whatsapp: '#25D366',
+                        whatsapphover: '#1EBE5A'
+                    },
+                    fontFamily: {
+                        serif: ['"Roboto Slab"', 'serif'],
+                        sans: ['"Roboto"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #FFFFFF;
+            color: #1F2937;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .font-serif-title {
+            font-family: 'Roboto Slab', serif;
+        }
+
+        /* Hero Slider Crossfade Animation */
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out, transform 8s ease;
+            transform: scale(1.05);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Lightbox CSS */
+        .lightbox-modal {
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+        .lightbox-modal.hidden {
+            opacity: 0;
+            pointer-events: none;
+            visibility: hidden;
+        }
+        .lightbox-modal:not(.hidden) {
+            opacity: 1;
+            pointer-events: auto;
+            visibility: visible;
+        }
+
+        /* Glassmorphism utility */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F3F4F6;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D1D5DB;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9CA3AF;
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-800 bg-white selection:bg-brand-500 selection:text-white">
+
+    <!-- Sticky Navigation Header -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <a href="#home" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-lg bg-brand-500 flex items-center justify-center text-white font-serif font-bold text-xl shadow-md group-hover:bg-brand-600 transition-colors">
+                        ABC
+                    </div>
+                    <div>
+                        <span class="block text-xl font-serif font-bold tracking-tight text-gray-900 group-hover:text-brand-600 transition-colors">ABC Hotel</span>
+                        <span class="block text-[10px] tracking-widest uppercase text-gray-500 font-medium">Boutique Stay & Suites</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8 font-medium text-sm text-gray-700">
+                    <a href="#home" class="hover:text-brand-600 transition-colors py-2 border-b-2 border-transparent hover:border-brand-500">Home</a>
+                    <a href="#about" class="hover:text-brand-600 transition-colors py-2 border-b-2 border-transparent hover:border-brand-500">About</a>
+                    <a href="#rooms" class="hover:text-brand-600 transition-colors py-2 border-b-2 border-transparent hover:border-brand-500">Rooms & Suites</a>
+                    <a href="#pricing" class="hover:text-brand-600 transition-colors py-2 border-b-2 border-transparent hover:border-brand-500">Rates</a>
+                    <a href="#amenities" class="hover:text-brand-600 transition-colors py-2 border-b-2 border-transparent hover:border-brand-500">Amenities</a>
+                    <a href="#gallery" class="hover:text-brand-600 transition-colors py-2 border-b-2 border-transparent hover:border-brand-500">Gallery</a>
+                    <a href="#contact" class="hover:text-brand-600 transition-colors py-2 border-b-2 border-transparent hover:border-brand-500">Contact</a>
+                </nav>
+
+                <!-- Action Buttons -->
+                <div class="hidden lg:flex items-center space-x-3">
+                    <a href="https://wa.me/1234567890?text=Hello%20ABC%20Hotel,%20I%20would%20like%20to%20inquire%20about%20room%20availability." 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="inline-flex items-center gap-2 bg-whatsapp hover:bg-whatsapphover text-white text-sm font-medium px-4 py-2.5 rounded-full shadow-sm hover:shadow transition-all duration-200">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>WhatsApp Direct</span>
+                    </a>
+                    <a href="#rooms" class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white text-sm font-medium px-5 py-2.5 rounded-full shadow-sm hover:shadow transition-all duration-200">
+                        <span>Book Now</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" aria-label="Toggle Mobile Menu" class="md:hidden p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none">
+                    <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-3 shadow-lg">
+            <a href="#home" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-gray-50">Home</a>
+            <a href="#about" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-gray-50">About</a>
+            <a href="#rooms" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-gray-50">Rooms & Suites</a>
+            <a href="#pricing" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-gray-50">Rates & Pricing</a>
+            <a href="#amenities" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-gray-50">Amenities</a>
+            <a href="#gallery" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-gray-50">Gallery</a>
+            <a href="#contact" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-gray-50">Contact</a>
+            
+            <div class="pt-4 border-t border-gray-100 flex flex-col gap-2">
+                <a href="https://wa.me/1234567890?text=Hello%20ABC%20Hotel,%20I%20would%20like%20to%20inquire%20about%20room%20availability." 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="w-full flex items-center justify-center gap-2 bg-whatsapp text-white font-medium px-4 py-3 rounded-xl">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <span>Chat on WhatsApp</span>
+                </a>
+                <a href="#rooms" class="mobile-nav-link w-full flex items-center justify-center gap-2 bg-brand-500 text-white font-medium px-4 py-3 rounded-xl">
+                    <span>Reserve Your Stay</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+
+        <!-- Hero Section with Auto Slider -->
+        <section id="home" class="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden bg-gray-900">
+            <!-- Fullwidth Slider Container -->
+            <div id="hero-slider" class="absolute inset-0 z-0">
+                <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2000&q=80');"></div>
+                <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=2000&q=80');"></div>
+                <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=2000&q=80');"></div>
+                <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2000&q=80');"></div>
+            </div>
+
+            <!-- Dark Gradient Overlay for Readability -->
+            <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/40 to-black/30"></div>
+
+            <!-- Hero Content -->
+            <div class="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white py-20">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-xs sm:text-sm font-medium tracking-widest uppercase mb-6 border border-white/30 text-brand-100">
+                    Welcome to ABC Hotel
+                </span>
+                
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-serif font-bold tracking-tight leading-tight mb-6 text-white drop-shadow-md">
+                    Where Tranquility Meets Modern Luxury
+                </h1>
+                
+                <p class="max-w-2xl mx-auto text-lg sm:text-xl text-gray-200 font-light mb-10 leading-relaxed drop-shadow">
+                    Immerse yourself in exceptional boutique accommodation designed for relaxation, premium comfort, and memorable moments.
+                </p>
+
+                <!-- Action CTA Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+                    <a href="#rooms" class="w-full sm:w-auto px-8 py-4 bg-brand-500 hover:bg-brand-600 text-white font-medium rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-calendar-check"></i>
+                        <span>Explore Rooms</span>
+                    </a>
+                    
+                    <a href="https://wa.me/1234567890?text=Hello%20ABC%20Hotel,%20I%20am%20interested%20in%20booking%20a%20stay." 
+                       target="_blank"
+                       rel="noopener noreferrer" 
+                       class="w-full sm:w-auto px-8 py-4 bg-whatsapp hover:bg-whatsapphover text-white font-medium rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>Instant WhatsApp Booking</span>
+                    </a>
+                </div>
+
+                <!-- Hero Search Widget -->
+                <div class="glass-panel text-gray-800 rounded-2xl p-4 sm:p-6 shadow-2xl max-w-4xl mx-auto border border-white/50 text-left">
+                    <form id="hero-search-form" onsubmit="handleHeroSearch(event)" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 items-end">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Check-in</label>
+                            <input type="date" id="search-checkin" required class="w-full px-3 py-2.5 rounded-lg border border-gray-200 focus:ring-2 focus:ring-brand-500 focus:outline-none text-sm text-gray-700 bg-white">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Check-out</label>
+                            <input type="date" id="search-checkout" required class="w-full px-3 py-2.5 rounded-lg border border-gray-200 focus:ring-2 focus:ring-brand-500 focus:outline-none text-sm text-gray-700 bg-white">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Guests</label>
+                            <select id="search-guests" class="w-full px-3 py-2.5 rounded-lg border border-gray-200 focus:ring-2 focus:ring-brand-500 focus:outline-none text-sm text-gray-700 bg-white">
+                                <option value="1 Guest">1 Guest</option>
+                                <option value="2 Guests" selected>2 Guests</option>
+                                <option value="3 Guests">3 Guests</option>
+                                <option value="4+ Guests">4+ Guests / Family</option>
+                            </select>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full py-2.5 px-4 bg-gray-900 hover:bg-brand-600 text-white font-medium rounded-lg transition-colors flex items-center justify-center gap-2 text-sm">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <span>Check WhatsApp Availability</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Slider Dots Indicator -->
+            <div class="absolute bottom-6 left-0 right-0 z-20 flex justify-center space-x-2" id="slider-dots">
+                <button class="w-3 h-3 rounded-full bg-white opacity-100 transition-opacity" onclick="setHeroSlide(0)" aria-label="Slide 1"></button>
+                <button class="w-3 h-3 rounded-full bg-white opacity-50 transition-opacity" onclick="setHeroSlide(1)" aria-label="Slide 2"></button>
+                <button class="w-3 h-3 rounded-full bg-white opacity-50 transition-opacity" onclick="setHeroSlide(2)" aria-label="Slide 3"></button>
+                <button class="w-3 h-3 rounded-full bg-white opacity-50 transition-opacity" onclick="setHeroSlide(3)" aria-label="Slide 4"></button>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 sm:py-28 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    
+                    <!-- Left Images Grid -->
+                    <div class="relative">
+                        <div class="relative z-10 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
+                            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=80" alt="ABC Hotel Interior" class="w-full h-[400px] object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="absolute -bottom-8 -right-4 sm:-right-8 z-20 w-3/5 rounded-2xl overflow-hidden shadow-2xl border-4 border-white hidden sm:block">
+                            <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="ABC Hotel Lounge" class="w-full h-[220px] object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="absolute -top-6 -left-6 z-0 w-32 h-32 bg-brand-100 rounded-full opacity-60 blur-2xl"></div>
+                    </div>
+
+                    <!-- Right Text Content -->
+                    <div>
+                        <span class="text-xs font-semibold uppercase tracking-widest text-brand-600 mb-2 block">Discover Our Story</span>
+                        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-gray-900 mb-6 leading-tight">
+                            Personalized Comfort & Unmatched Elegance at ABC Hotel
+                        </h2>
+                        <p class="text-gray-600 leading-relaxed mb-6 font-light">
+                            Nestled in a serene environment, ABC Hotel combines modern boutique design with personalized hospitality. Whether you are traveling for leisure, business, or a romantic getaway, our thoughtfully equipped rooms provide a quiet sanctuary.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed mb-8 font-light">
+                            Enjoy direct line communication with our concierge via WhatsApp for seamless check-ins, local recommendations, and bespoke requests tailored directly to your schedule.
+                        </p>
+
+                        <!-- Key Features Highlights -->
+                        <div class="grid grid-cols-2 gap-6 pt-2 border-t border-gray-100">
+                            <div class="flex items-start gap-3">
+                                <div class="w-10 h-10 rounded-full bg-brand-50 flex items-center justify-center text-brand-600 flex-shrink-0">
+                                    <i class="fa-solid fa-wifi text-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-900 text-sm">Ultra Fast Wi-Fi</h3>
+                                    <p class="text-xs text-gray-500 mt-0.5">High-speed connectivity everywhere</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-10 h-10 rounded-full bg-brand-50 flex items-center justify-center text-brand-600 flex-shrink-0">
+                                    <i class="fa-solid fa-headset text-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-900 text-sm">Direct Concierge</h3>
+                                    <p class="text-xs text-gray-500 mt-0.5">Instant WhatsApp assistance</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Rooms Section -->
+        <section id="rooms" class="py-20 bg-brand-50/50 border-y border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-xs font-semibold uppercase tracking-widest text-brand-600 block mb-2">Refined Sanctuary</span>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-gray-900 mb-4">Our Accommodations</h2>
+                    <p class="text-gray-600 font-light">Choose from our selection of tastefully curated suites designed to deliver complete relaxation.</p>
+                </div>
+
+                <!-- Room Categories Filter -->
+                <div class="flex justify-center flex-wrap gap-2 mb-12" id="room-filters">
+                    <button onclick="filterRooms('all')" class="room-filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all bg-gray-900 text-white shadow-sm" data-category="all">All Suites</button>
+                    <button onclick="filterRooms('deluxe')" class="room-filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-600 hover:bg-gray-100 border border-gray-200" data-category="deluxe">Deluxe Rooms</button>
+                    <button onclick="filterRooms('executive')" class="room-filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-600 hover:bg-gray-100 border border-gray-200" data-category="executive">Executive Suites</button>
+                    <button onclick="filterRooms('family')" class="room-filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-600 hover:bg-gray-100 border border-gray-200" data-category="family">Family Units</button>
+                </div>
+
+                <!-- Rooms Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="rooms-grid">
+                    
+                    <!-- Room Card 1 -->
+                    <div class="room-card group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-category="deluxe">
+                        <div class="relative overflow-hidden h-64">
+                            <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80" alt="Deluxe King Suite" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-gray-900 shadow">
+                                $120 / Night
+                            </div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center gap-4 text-xs text-gray-500 mb-2">
+                                    <span><i class="fa-solid fa-user group-hover:text-brand-500"></i> Max 2 Guests</span>
+                                    <span><i class="fa-solid fa-bed"></i> 1 King Bed</span>
+                                    <span><i class="fa-solid fa-expand"></i> 35 m²</span>
+                                </div>
+                                <h3 class="text-xl font-serif font-bold text-gray-900 mb-2 group-hover:text-brand-600 transition-colors">Deluxe King Suite</h3>
+                                <p class="text-gray-600 text-sm font-light line-clamp-2 mb-4">
+                                    A spacious sunlit haven featuring premium hardwood finishes, plush bedding, and an elegant workspace.
+                                </p>
+                            </div>
+
+                            <div class="pt-4 border-t border-gray-100 flex items-center gap-2">
+                                <button onclick="openRoomModal('deluxe-king')" class="flex-1 py-2.5 px-3 bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs font-medium rounded-lg transition-colors text-center">
+                                    View Details
+                                </button>
+                                <a href="https://wa.me/1234567890?text=Hello%20ABC%20Hotel,%20I%20want%20to%20book%20the%20Deluxe%20King%20Suite." 
+                                   target="_blank" 
+                                   rel="noopener noreferrer"
+                                   class="flex-1 py-2.5 px-3 bg-whatsapp hover:bg-whatsapphover text-white text-xs font-medium rounded-lg transition-colors text-center flex items-center justify-center gap-1.5">
+                                    <i class="fa-brands fa-whatsapp text-sm"></i>
+                                    <span>WhatsApp Book</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Room Card 2 -->
+                    <div class="room-card group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-category="executive">
+                        <div class="relative overflow-hidden h-64">
+                            <img src="https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=800&q=80" alt="Executive Balcony Suite" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-gray-900 shadow">
+                                $160 / Night
+                            </div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center gap-4 text-xs text-gray-500 mb-2">
+                                    <span><i class="fa-solid fa-user"></i> Max 2 Guests</span>
+                                    <span><i class="fa-solid fa-bed"></i> 1 Super King</span>
+                                    <span><i class="fa-solid fa-expand"></i> 48 m²</span>
+                                </div>
+                                <h3 class="text-xl font-serif font-bold text-gray-900 mb-2 group-hover:text-brand-600 transition-colors">Executive Balcony Suite</h3>
+                                <p class="text-gray-600 text-sm font-light line-clamp-2 mb-4">
+                                    Private outdoor terrace balcony overlooking garden views, complete with a spa-style marble bathroom.
+                                </p>
+                            </div>
+
+                            <div class="pt-4 border-t border-gray-100 flex items-center gap-2">
+                                <button onclick="openRoomModal('executive-balcony')" class="flex-1 py-2.5 px-3 bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs font-medium rounded-lg transition-colors text-center">
+                                    View Details
+                                </button>
+                                <a href="https://wa.me/1234567890?text=Hello%20ABC%20Hotel,%20I%20want%20to%20book%20the%20Executive%20Balcony%20Suite." 
+                                   target="_blank" 
+                                   rel="noopener noreferrer"
+                                   class="flex-1 py-2.5 px-3 bg-whatsapp hover:bg-whatsapphover text-white text-xs font-medium rounded-lg transition-colors text-center flex items-center justify-center gap-1.5">
+                                    <i class="fa-brands fa-whatsapp text-sm"></i>
+                                    <span>WhatsApp Book</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Room Card 3 -->
+                    <div class="room-card group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-category="family">
+                        <div class="relative overflow-hidden h-64">
+                            <img src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=80" alt="Family Quad Suite" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-gray-900 shadow">
+                                $220 / Night
+                            </div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center gap-4 text-xs text-gray-500 mb-2">
+                                    <span><i class="fa-solid fa-user"></i> Max 4 Guests</span>
+                                    <span><i class="fa-solid fa-bed"></i> 2 Queen Beds</span>
+                                    <span><i class="fa-solid fa-expand"></i> 60 m²</span>
+                                </div>
+                                <h3 class="text-xl font-serif font-bold text-gray-900 mb-2 group-hover:text-brand-600 transition-colors">Family Quad Suite</h3>
+                                <p class="text-gray-600 text-sm font-light line-clamp-2 mb-4">
+                                    Generous family suite with dual queen beds, comfortable seating area, and complimentary breakfast.
+                                </p>
+                            </div>
+
+                            <div class="pt-4 border-t border-gray-100 flex items-center gap-2">
+                                <button onclick="openRoomModal('family-quad')" class="flex-1 py-2.5 px-3 bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs font-medium rounded-lg transition-colors text-center">
+                                    View Details
+                                </button>
+                                <a href="https://wa.me/1234567890?text=Hello%20ABC%20Hotel,%20I%20want%20to%20book%20the%20Family%20Quad%20Suite." 
+                                   target="_blank" 
+                                   rel="noopener noreferrer"
+                                   class="flex-1 py-2.5 px-3 bg-whatsapp hover:bg-whatsapphover text-white text-xs font-medium rounded-lg transition-colors text-center flex items-center justify-center gap-1.5">
+                                    <i class="fa-brands fa-whatsapp text-sm"></i>
+                                    <span>WhatsApp Book</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Table Section -->
+        <section id="pricing" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-xs font-semibold uppercase tracking-widest text-brand-600 block mb-2">Transparent Rates</span>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-gray-900 mb-4">Seasonal Pricing Breakdown</h2>
+                    <p class="text-gray-600 font-light">Direct booking rates with no hidden platform fees. Special long-stay discounts available on request.</p>
+                </div>
+
+                <div class="overflow-x-auto shadow-sm rounded-2xl border border-gray-200">
+                    <table class="w-full text-left border-collapse bg-white">
+                        <thead>
+                            <tr class="bg-gray-900 text-white font-serif text-sm">
+                                <th class="py-4 px-6 font-semibold">Room Type</th>
+                                <th class="py-4 px-6 font-semibold">Occupancy</th>
+                                <th class="py-4 px-6 font-semibold">Standard Rate</th>
+                                <th class="py-4 px-6 font-semibold">Peak Season</th>
+                                <th class="py-4 px-6 font-semibold">Inclusions</th>
+                                <th class="py-4 px-6 font-semibold text-right">Direct Reserve</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100 text-sm">
+                            <tr class="hover:bg-brand-50/30 transition-colors">
+                                <td class="py-4 px-6 font-medium text-gray-900">Deluxe King Suite</td>
+                                <td class="py-4 px-6 text-gray-600">Up to 2 Adults</td>
+                                <td class="py-4 px-6 font-bold text-brand-600">$120 / night</td>
+                                <td class="py-4 px-6 text-gray-600">$150 / night</td>
+                                <td class="py-4 px-6 text-gray-500 text-xs">Wi-Fi, Espresso Bar, Housekeeping</td>
+                                <td class="py-4 px-6 text-right">
+                                    <a href="https://wa.me/1234567890?text=Inquiring%20about%20Deluxe%20King%20Suite%20rates" target="_blank" class="text-xs font-medium text-whatsapp hover:underline">Book WhatsApp &rarr;</a>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-brand-50/30 transition-colors">
+                                <td class="py-4 px-6 font-medium text-gray-900">Executive Balcony Suite</td>
+                                <td class="py-4 px-6 text-gray-600">Up to 2 Adults</td>
+                                <td class="py-4 px-6 font-bold text-brand-600">$160 / night</td>
+                                <td class="py-4 px-6 text-gray-600">$195 / night</td>
+                                <td class="py-4 px-6 text-gray-500 text-xs">Breakfast, Private Balcony, High-speed Wi-Fi</td>
+                                <td class="py-4 px-6 text-right">
+                                    <a href="https://wa.me/1234567890?text=Inquiring%20about%20Executive%20Suite%20rates" target="_blank" class="text-xs font-medium text-whatsapp hover:underline">Book WhatsApp &rarr;</a>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-brand-50/30 transition-colors">
+                                <td class="py-4 px-6 font-medium text-gray-900">Family Quad Suite</td>
+                                <td class="py-4 px-6 text-gray-600">Up to 4 Adults</td>
+                                <td class="py-4 px-6 font-bold text-brand-600">$220 / night</td>
+                                <td class="py-4 px-6 text-gray-600">$260 / night</td>
+                                <td class="py-4 px-6 text-gray-500 text-xs">Full Breakfast, Extra Living Space, Airport Pickup Option</td>
+                                <td class="py-4 px-6 text-right">
+                                    <a href="https://wa.me/1234567890?text=Inquiring%20about%20Family%20Quad%20Suite%20rates" target="_blank" class="text-xs font-medium text-whatsapp hover:underline">Book WhatsApp &rarr;</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="text-center text-xs text-gray-400 mt-4">* Prices are subject to local taxes. Direct bookings include complimentary early check-in subject to availability.</p>
+            </div>
+        </section>
+
+        <!-- Amenities Section -->
+        <section id="amenities" class="py-20 bg-brand-50/40 border-t border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-semibold uppercase tracking-widest text-brand-600 block mb-2">Designed For Living</span>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-gray-900 mb-4">Crafted Amenities</h2>
+                    <p class="text-gray-600 font-light">Every feature at ABC Hotel is curated to elevate your comfort and convenience.</p>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    
+                    <!-- Amenity 1 -->
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow text-center group">
+                        <div class="w-14 h-14 mx-auto rounded-full bg-brand-50 text-brand-600 flex items-center justify-center text-2xl mb-4 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-wifi"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-gray-900 mb-1">High-Speed Wi-Fi</h3>
+                        <p class="text-xs text-gray-500 font-light">Seamless coverage across all rooms & public areas</p>
+                    </div>
+
+                    <!-- Amenity 2 -->
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow text-center group">
+                        <div class="w-14 h-14 mx-auto rounded-full bg-brand-50 text-brand-600 flex items-center justify-center text-2xl mb-4 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-mug-hot"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-gray-900 mb-1">Gourmet Breakfast</h3>
+                        <p class="text-xs text-gray-500 font-light">Fresh artisan morning pastries & organic coffee</p>
+                    </div>
+
+                    <!-- Amenity 3 -->
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow text-center group">
+                        <div class="w-14 h-14 mx-auto rounded-full bg-brand-50 text-brand-600 flex items-center justify-center text-2xl mb-4 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-snowflake"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-gray-900 mb-1">Climate Control</h3>
+                        <p class="text-xs text-gray-500 font-light">Individual silent AC & heating controls</p>
+                    </div>
+
+                    <!-- Amenity 4 -->
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow text-center group">
+                        <div class="w-14 h-14 mx-auto rounded-full bg-brand-50 text-brand-600 flex items-center justify-center text-2xl mb-4 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-tv"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-gray-900 mb-1">Smart TV</h3>
+                        <p class="text-xs text-gray-500 font-light">4K Ultra HD screens with streaming apps</p>
+                    </div>
+
+                    <!-- Amenity 5 -->
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow text-center group">
+                        <div class="w-14 h-14 mx-auto rounded-full bg-brand-50 text-brand-600 flex items-center justify-center text-2xl mb-4 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-car"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-gray-900 mb-1">On-Site Parking</h3>
+                        <p class="text-xs text-gray-500 font-light">Secure, gated private parking facilities</p>
+                    </div>
+
+                    <!-- Amenity 6 -->
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow text-center group">
+                        <div class="w-14 h-14 mx-auto rounded-full bg-brand-50 text-brand-600 flex items-center justify-center text-2xl mb-4 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-bell"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-gray-900 mb-1">24/7 WhatsApp Host</h3>
+                        <p class="text-xs text-gray-500 font-light">Immediate direct messaging response</p>
+                    </div>
+
+                    <!-- Amenity 7 -->
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow text-center group">
+                        <div class="w-14 h-14 mx-auto rounded-full bg-brand-50 text-brand-600 flex items-center justify-center text-2xl mb-4 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-wine-glass"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-gray-900 mb-1">Mini Bar</h3>
+                        <p class="text-xs text-gray-500 font-light">Curated local refreshments & snacks</p>
+                    </div>
+
+                    <!-- Amenity 8 -->
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow text-center group">
+                        <div class="w-14 h-14 mx-auto rounded-full bg-brand-50 text-brand-600 flex items-center justify-center text-2xl mb-4 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-spray-can-sparkles"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-gray-900 mb-1">Daily Housekeeping</h3>
+                        <p class="text-xs text-gray-500 font-light">Fresh linens & spotless daily service</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-xs font-semibold uppercase tracking-widest text-brand-600 block mb-2">Visual Tour</span>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-gray-900 mb-4">Photo Gallery</h2>
+                    <p class="text-gray-600 font-light">Click any image to expand full screen.</p>
+                </div>
+
+                <!-- Gallery Category Filter -->
+                <div class="flex justify-center flex-wrap gap-2 mb-10" id="gallery-filters">
+                    <button onclick="filterGallery('all')" class="gallery-filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-gray-900 text-white shadow-sm" data-category="all">All Photos</button>
+                    <button onclick="filterGallery('rooms')" class="gallery-filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-white text-gray-600 hover:bg-gray-100 border border-gray-200" data-category="rooms">Rooms</button>
+                    <button onclick="filterGallery('interior')" class="gallery-filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-white text-gray-600 hover:bg-gray-100 border border-gray-200" data-category="interior">Interiors & Lounge</button>
+                    <button onclick="filterGallery('dining')" class="gallery-filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-white text-gray-600 hover:bg-gray-100 border border-gray-200" data-category="dining">Dining</button>
+                </div>
+
+                <!-- Gallery Masonry/Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4" id="gallery-grid">
+                    
+                    <div class="gallery-item group relative h-64 rounded-xl overflow-hidden cursor-pointer" data-category="rooms" onclick="openLightbox(0)">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=80" alt="Hotel Exterior" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                            <i class="fa-solid fa-expand text-2xl"></i>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item group relative h-64 rounded-xl overflow-hidden cursor-pointer" data-category="rooms" onclick="openLightbox(1)">
+                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=80" alt="Deluxe Bedroom" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                            <i class="fa-solid fa-expand text-2xl"></i>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item group relative h-64 rounded-xl overflow-hidden cursor-pointer" data-category="interior" onclick="openLightbox(2)">
+                        <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1000&q=80" alt="Lounge Area" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                            <i class="fa-solid fa-expand text-2xl"></i>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item group relative h-64 rounded-xl overflow-hidden cursor-pointer" data-category="dining" onclick="openLightbox(3)">
+                        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1000&q=80" alt="Breakfast Table" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                            <i class="fa-solid fa-expand text-2xl"></i>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item group relative h-64 rounded-xl overflow-hidden cursor-pointer" data-category="interior" onclick="openLightbox(4)">
+                        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1000&q=80" alt="Bathroom Luxury" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                            <i class="fa-solid fa-expand text-2xl"></i>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item group relative h-64 rounded-xl overflow-hidden cursor-pointer" data-category="dining" onclick="openLightbox(5)">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=80" alt="Garden View" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                            <i class="fa-solid fa-expand text-2xl"></i>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact & Map Section -->
+        <section id="contact" class="py-20 bg-brand-50/50 border-t border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    
+                    <!-- Left Column: Direct Info & Form -->
+                    <div>
+                        <span class="text-xs font-semibold uppercase tracking-widest text-brand-600 block mb-2">Get In Touch</span>
+                        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-gray-900 mb-6">Reach ABC Hotel</h2>
+                        <p class="text-gray-600 font-light mb-8">
+                            Have questions or special requests? Send us a direct message or contact us directly on WhatsApp for instant confirmation.
+                        </p>
+
+                        <!-- Contact Channels List -->
+                        <div class="space-y-4 mb-8">
+                            <a href="https://wa.me/1234567890" target="_blank" class="flex items-center gap-4 p-4 bg-white rounded-xl border border-gray-100 shadow-sm hover:border-whatsapp transition-colors">
+                                <div class="w-12 h-12 rounded-full bg-whatsapp/10 text-whatsapp flex items-center justify-center text-xl">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 text-sm">WhatsApp Direct Chat</h4>
+                                    <p class="text-xs text-gray-500">+1 (234) 567-890</p>
+                                </div>
+                            </a>
+
+                            <a href="mailto:info@abchotel.com" class="flex items-center gap-4 p-4 bg-white rounded-xl border border-gray-100 shadow-sm hover:border-brand-500 transition-colors">
+                                <div class="w-12 h-12 rounded-full bg-brand-50 text-brand-600 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 text-sm">Direct Email</h4>
+                                    <p class="text-xs text-gray-500">info@abchotel.com</p>
+                                </div>
+                            </a>
+
+                            <div class="flex items-center gap-4 p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
+                                <div class="w-12 h-12 rounded-full bg-brand-50 text-brand-600 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 text-sm">Address Location</h4>
+                                    <p class="text-xs text-gray-500">123 Boutique Avenue, City Center, Country</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Direct Message Form -->
+                        <form id="contact-form" onsubmit="handleContactSubmit(event)" class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm space-y-4">
+                            <h3 class="font-serif font-bold text-gray-900">Send an Online Inquiry</h3>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-700 mb-1">Your Name</label>
+                                    <input type="text" required class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-700 mb-1">Email Address</label>
+                                    <input type="email" required class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-gray-700 mb-1">Message</label>
+                                <textarea rows="3" required class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none"></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-3 bg-gray-900 hover:bg-brand-600 text-white font-medium rounded-lg text-sm transition-colors">
+                                Send Message Inquiry
+                            </button>
+                        </form>
+
+                    </div>
+
+                    <!-- Right Column: Embedded Map Container -->
+                    <div class="flex flex-col h-full">
+                        <div class="bg-white p-2 rounded-2xl border border-gray-100 shadow-sm flex-1 min-h-[400px]">
+                            <iframe 
+                                title="ABC Hotel Map Location"
+                                class="w-full h-full rounded-xl"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.9537353153166!3d-37.81627977975171!2m3!1f0!0!f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349649%3A0xb6899234e561db11!2sEnvato!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8 rounded bg-brand-500 flex items-center justify-center font-serif font-bold text-white text-sm">ABC</div>
+                        <span class="font-serif font-bold text-xl">ABC Hotel</span>
+                    </div>
+                    <p class="text-gray-400 text-sm font-light max-w-sm mb-4">
+                        Experience refined boutique accommodation with personal attention to detail. Direct booking guarantee.
+                    </p>
+                    <div class="flex gap-4 text-gray-400 text-lg">
+                        <a href="#" class="hover:text-brand-400"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="hover:text-brand-400"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="hover:text-brand-400"><i class="fa-brands fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-serif font-semibold text-sm mb-4 uppercase tracking-wider text-gray-300">Quick Navigation</h4>
+                    <ul class="space-y-2 text-sm text-gray-400 font-light">
+                        <li><a href="#home" class="hover:text-white">Home Page</a></li>
+                        <li><a href="#rooms" class="hover:text-white">Rooms & Suites</a></li>
+                        <li><a href="#pricing" class="hover:text-white">Seasonal Rates</a></li>
+                        <li><a href="#amenities" class="hover:text-white">Guest Amenities</a></li>
+                        <li><a href="#gallery" class="hover:text-white">Photo Gallery</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-serif font-semibold text-sm mb-4 uppercase tracking-wider text-gray-300">Owner Tools</h4>
+                    <p class="text-xs text-gray-400 mb-3">Updating photos or prices?</p>
+                    <button onclick="openSetupGuideModal()" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-brand-300 rounded-lg text-xs font-medium border border-gray-700 transition-colors">
+                        <i class="fa-solid fa-gear mr-1.5"></i> Owner Setup Guide
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-gray-800 text-center text-xs text-gray-500">
+                <p>&copy; 2026 ABC Hotel. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Action Button -->
+    <a href="https://wa.me/1234567890?text=Hello%20ABC%20Hotel,%20I%20have%20a%20booking%20question." 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Chat on WhatsApp"
+       class="fixed bottom-6 right-6 z-40 w-14 h-14 bg-whatsapp hover:bg-whatsapphover text-white rounded-full flex items-center justify-center shadow-2xl transition-transform hover:scale-110 focus:outline-none">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="lightbox-modal hidden fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-3xl hover:text-brand-400 focus:outline-none z-10">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <button onclick="changeLightboxImage(-1)" class="absolute left-4 text-white text-3xl hover:text-brand-400 p-3 z-10">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <img id="lightbox-img" src="" alt="Expanded View" class="max-h-[85vh] max-w-[90vw] object-contain rounded-lg shadow-2xl">
+
+        <button onclick="changeLightboxImage(1)" class="absolute right-4 text-white text-3xl hover:text-brand-400 p-3 z-10">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <!-- Room Details Modal -->
+    <div id="room-details-modal" class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white rounded-2xl max-w-2xl w-full p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeRoomModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 text-2xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="modal-room-content">
+                <!-- Dynamically populated via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Owner Setup & Customization Guide Modal -->
+    <div id="setup-guide-modal" class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white rounded-2xl max-w-3xl w-full p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto text-left">
+            <button onclick="closeSetupGuideModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 text-2xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <h3 class="text-2xl font-serif font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-sliders text-brand-500"></i> Owner Customization Guide
+            </h3>
+
+            <p class="text-sm text-gray-600 mb-6 leading-relaxed">
+                You can easily customize all text, prices, gallery photos, and phone numbers in this single HTML file. Follow the instructions below:
+            </p>
+
+            <div class="space-y-6 text-sm text-gray-700">
+                
+                <div class="p-4 bg-gray-50 rounded-xl border border-gray-200">
+                    <h4 class="font-bold text-gray-900 mb-1"><i class="fa-brands fa-whatsapp text-whatsapp mr-1.5"></i> 1. Change WhatsApp Phone Number</h4>
+                    <p class="text-xs text-gray-600 mb-2">Search for <code class="bg-gray-200 px-1 py-0.5 rounded">1234567890</code> in the file and replace it with your full phone number including country code (e.g. <code class="bg-gray-200 px-1 py-0.5 rounded">14155552671</code> without + or spaces).</p>
+                </div>
+
+                <div class="p-4 bg-gray-50 rounded-xl border border-gray-200">
+                    <h4 class="font-bold text-gray-900 mb-1"><i class="fa-solid fa-image text-brand-500 mr-1.5"></i> 2. Replace Photos</h4>
+                    <p class="text-xs text-gray-600">Replace any <code class="bg-gray-200 px-1 py-0.5 rounded">https://images.unsplash.com/...</code> URL with your custom photo link or local path (e.g., <code class="bg-gray-200 px-1 py-0.5 rounded">images/room1.jpg</code>).</p>
+                </div>
+
+                <div class="p-4 bg-gray-50 rounded-xl border border-gray-200">
+                    <h4 class="font-bold text-gray-900 mb-1"><i class="fa-solid fa-tag text-brand-500 mr-1.5"></i> 3. Modify Room Prices & Details</h4>
+                    <p class="text-xs text-gray-600">Edit the text inside the HTML blocks under <code class="bg-gray-200 px-1 py-0.5 rounded">#rooms</code> and <code class="bg-gray-200 px-1 py-0.5 rounded">#pricing</code> tables directly.</p>
+                </div>
+
+            </div>
+
+            <div class="mt-8 text-right">
+                <button onclick="closeSetupGuideModal()" class="px-6 py-2.5 bg-gray-900 text-white text-xs font-medium rounded-lg">Close Guide</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script>
+        // Hero Slider Logic
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        const dots = document.querySelectorAll('#slider-dots button');
+
+        function setHeroSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.add('opacity-50');
+            dots[currentSlide].classList.remove('opacity-100');
+            
+            currentSlide = index;
+            
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.remove('opacity-50');
+            dots[currentSlide].classList.add('opacity-100');
+        }
+
+        setInterval(() => {
+            const nextSlide = (currentSlide + 1) % slides.length;
+            setHeroSlide(nextSlide);
+        }, 5000);
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Hero Search Handler
+        function handleHeroSearch(event) {
+            event.preventDefault();
+            const checkin = document.getElementById('search-checkin').value;
+            const checkout = document.getElementById('search-checkout').value;
+            const guests = document.getElementById('search-guests').value;
+
+            const msg = `Hello ABC Hotel! I am looking for availability for ${guests} from ${checkin} to ${checkout}.`;
+            const waUrl = `https://wa.me/1234567890?text=${encodeURIComponent(msg)}`;
+            window.open(waUrl, '_blank');
+        }
+
+        // Room Filtering
+        function filterRooms(category) {
+            const cards = document.querySelectorAll('.room-card');
+            const btns = document.querySelectorAll('.room-filter-btn');
+
+            btns.forEach(btn => {
+                if (btn.getAttribute('data-category') === category) {
+                    btn.className = "room-filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all bg-gray-900 text-white shadow-sm";
+                } else {
+                    btn.className = "room-filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-600 hover:bg-gray-100 border border-gray-200";
+                }
+            });
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Gallery Filtering
+        function filterGallery(category) {
+            const items = document.querySelectorAll('.gallery-item');
+            const btns = document.querySelectorAll('.gallery-filter-btn');
+
+            btns.forEach(btn => {
+                if (btn.getAttribute('data-category') === category) {
+                    btn.className = "gallery-filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-gray-900 text-white shadow-sm";
+                } else {
+                    btn.className = "gallery-filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-white text-gray-600 hover:bg-gray-100 border border-gray-200";
+                }
+            });
+
+            items.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Lightbox Logic
+        const galleryImages = [
+            'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=80',
+            'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1600&q=80',
+            'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1600&q=80',
+            'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1600&q=80',
+            'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1600&q=80',
+            'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80'
+        ];
+        let currentLightboxIndex = 0;
+
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            document.getElementById('lightbox-img').src = galleryImages[currentLightboxIndex];
+            document.getElementById('lightbox-modal').classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox-modal').classList.add('hidden');
+        }
+
+        function changeLightboxImage(direction) {
+            currentLightboxIndex = (currentLightboxIndex + direction + galleryImages.length) % galleryImages.length;
+            document.getElementById('lightbox-img').src = galleryImages[currentLightboxIndex];
+        }
+
+        // Room Details Modal
+        const roomDetailsData = {
+            'deluxe-king': {
+                title: 'Deluxe King Suite',
+                image: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1000&q=80',
+                price: '$120 / Night',
+                desc: 'An inviting combination of warm design, king-sized plush mattress, high-speed Wi-Fi, modern ensuite bathroom, and natural light.',
+                features: ['King Bed', 'Max 2 Guests', '35 m² Space', 'Rain Shower', 'Espresso Machine']
+            },
+            'executive-balcony': {
+                title: 'Executive Balcony Suite',
+                image: 'https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=1000&q=80',
+                price: '$160 / Night',
+                desc: 'Features a private furnished balcony, marble bathroom with luxury toiletries, and complimentary daily gourmet breakfast.',
+                features: ['Super King Bed', 'Private Terrace', '48 m² Space', 'Free Breakfast', 'Smart TV']
+            },
+            'family-quad': {
+                title: 'Family Quad Suite',
+                image: 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1000&q=80',
+                price: '$220 / Night',
+                desc: 'Spacious accommodation designed for families, featuring two queen beds, extra seating space, and child-friendly amenities.',
+                features: ['2 Queen Beds', 'Max 4 Guests', '60 m² Space', 'Lounge Area', 'Mini Fridge']
+            }
+        };
+
+        function openRoomModal(roomId) {
+            const data = roomDetailsData[roomId];
+            if (!data) return;
+
+            const modalContent = document.getElementById('modal-room-content');
+            modalContent.innerHTML = `
+                <img src="${data.image}" alt="${data.title}" class="w-full h-64 object-cover rounded-xl mb-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-2xl font-serif font-bold text-gray-900">${data.title}</h3>
+                    <span class="text-lg font-bold text-brand-600">${data.price}</span>
+                </div>
+                <p class="text-gray-600 text-sm mb-6 leading-relaxed">${data.desc}</p>
+                <div class="mb-6">
+                    <h4 class="font-semibold text-xs text-gray-400 uppercase tracking-wider mb-2">Room Features</h4>
+                    <div class="flex flex-wrap gap-2">
+                        ${data.features.map(f => `<span class="bg-brand-50 text-brand-700 text-xs px-3 py-1 rounded-full font-medium">${f}</span>`).join('')}
+                    </div>
+                </div>
+                <a href="https://wa.me/1234567890?text=Hello%20ABC%20Hotel,%20I%20am%20interested%20in%20reserving%20the%20${encodeURIComponent(data.title)}." 
+                   target="_blank" 
+                   class="w-full block py-3 bg-whatsapp hover:bg-whatsapphover text-white text-center rounded-xl font-medium text-sm transition-colors">
+                   <i class="fa-brands fa-whatsapp text-lg mr-2"></i> Confirm Availability on WhatsApp
+                </a>
+            `;
+
+            document.getElementById('room-details-modal').classList.remove('hidden');
+        }
+
+        function closeRoomModal() {
+            document.getElementById('room-details-modal').classList.add('hidden');
+        }
+
+        // Owner Setup Modal
+        function openSetupGuideModal() {
+            document.getElementById('setup-guide-modal').classList.remove('hidden');
+        }
+        function closeSetupGuideModal() {
+            document.getElementById('setup-guide-modal').classList.add('hidden');
+        }
+
+        // Contact Form
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            alert('Thank you for reaching out to ABC Hotel! We have received your inquiry and will respond shortly.');
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
